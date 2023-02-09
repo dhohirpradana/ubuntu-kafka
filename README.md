@@ -34,11 +34,16 @@ docker exec -it ubuntu-kafka /opt/confluent/bin/kafka-topics --list --bootstrap-
 docker exec -it ubuntu-kafka /opt/confluent/bin/kafka-avro-console-consumer --topic test-tabletest --bootstrap-server localhost:9092 --from-beginning
 ```
 
-## Plugin Location
+## Plugins Location
 ```
 /opt/confluent/share/java
 ```
 Or you can also access on mounted docker volume directory
+
+Restart kafka connect after add or update plugin
+```
+docker exec -it ubuntu-kafka systemctl restart kafka-connect.service
+```
 
 docker registry
 https://hub.docker.com/repository/docker/dhohirp/ubuntu-kafka/general
