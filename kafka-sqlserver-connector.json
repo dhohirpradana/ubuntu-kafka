@@ -1,0 +1,17 @@
+{
+    "name": "sqlserver-source-users2",
+    "config": {
+        "connector.class": "io.debezium.connector.sqlserver.SqlServerConnector",
+        "database.hostname": "10.10.65.5",
+        "database.port": "1433",
+        "database.user": "sapujagad",
+        "database.password": "Sapujagad354",
+        "database.dbname": "sapujagad",
+        "database.server.name": "fullfillment-sqlserver-source-users2",
+        "table.whitelist": "dbo.users",
+        "database.history.kafka.bootstrap.servers": "http://10.10.65.5:9092",
+        "database.history.kafka.topic": "dbhistory.fullfillment",
+        "change.tracking.tables": "dbo.users",
+        "topicFormat.format": "fullfillment.${databaseName}.${tableName}"
+    }
+}
