@@ -1,5 +1,6 @@
-// Source
+// Can be used on mariadb or mysql database
 
+// Source
 {
     "name": "mysql-source-test",
     "config": {
