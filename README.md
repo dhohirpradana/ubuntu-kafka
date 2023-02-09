@@ -26,7 +26,7 @@ docker exec -it ubuntu-kafka /opt/confluent/bin/kafka-avro-console-producer --to
 ```
 ## Topics List
 ```bash
-docker exec -it systemd-ubuntu /opt/confluent/bin/kafka-topics --list --bootstrap-server localhost:9092
+docker exec -it ubuntu-kafka /opt/confluent/bin/kafka-topics --list --bootstrap-server localhost:9092
 ```
 ## Consume Topic
 
