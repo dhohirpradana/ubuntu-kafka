@@ -18,6 +18,28 @@ docker volume create ubuntu-kafka-volume
 ```bash
 docker run -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro --name ubuntu-kafka -v ubuntu-kafka-volume:/opt/confluent/share/java -p 9092:9092 -p 8081:8081 -p 8083:8083 -p 2181:2181 dhohirp/ubuntu-kafka:1.0 
 ```
+## Services
+- enable service
+```bash
+systemctl enable zookeeper.service
+systemctl enable kafka.service
+systemctl enable schema-registry.service
+systemctl enable kafka-connect.service
+```
+- start service
+```bash
+systemctl start zookeeper.service
+systemctl start kafka.service
+systemctl start schema-registry.service
+systemctl start kafka-connect.service
+```
+- status service
+```bash
+systemctl status zookeeper.service
+systemctl status kafka.service
+systemctl status schema-registry.service
+systemctl status kafka-connect.service
+```
 ## Create Topic
 ```bash
 docker exec -it ubuntu-kafka /opt/confluent/bin/kafka-avro-console-producer --topic test \
