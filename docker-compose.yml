@@ -1,0 +1,57 @@
+version: "3.9"
+services:
+  zk:
+    image: dhohirp/ubuntu-kafka:1.0
+    container_name: zk
+    ports:
+      - "2182:2181"
+    deploy:
+      restart_policy:
+        condition: on-failure
+  
+  kafka:
+    image: dhohirp/ubuntu-kafka:1.0
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zk
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  kafka-connect:
+    image: dhohirp/ubuntu-kafka:1.0
+    container_name: kafka-connect
+    ports:
+      - "8083:8083"
+    depends_on:
+      - kafka
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  schema-registry:
+    image: dhohirp/ubuntu-kafka:1.0
+    container_name: schema-registry
+    ports:
+      - "8081:8081"
+    depends_on:
+      - kafka
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  kafka-connect-ui:
+    image: landoop/kafka-connect-ui
+    container_name: kafka-connect-ui
+    ports:
+      - "8000:8000"
+    depends_on:
+      - kafka-connect
+    deploy:
+      restart_policy:
+        condition: on-failure
+    environment:
+      CONNECT_URL: http://localhost:8083
+      PROXY: "true"
