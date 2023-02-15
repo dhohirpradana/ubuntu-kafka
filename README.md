@@ -16,7 +16,7 @@ docker volume create ubuntu-kafka-volume
 - run container
 
 ```bash
-docker run -d --name ubuntu-kafka -v ubuntu-kafka-volume:/opt/confluent/share/java -p 9092:9092 -p 8081:8081-p 8083:8083 -p 2181:2181 dhohirp/ubuntu-kafka:latest 
+docker run -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro jrei/systemd-ubuntu --name ubuntu-kafka -v ubuntu-kafka-volume:/opt/confluent/share/java -p 9092:9092 -p 8081:8081 -p 8083:8083 -p 2181:2181 dhohirp/ubuntu-kafka:1.0 
 ```
 ## Create Topic
 ```bash
