@@ -22,22 +22,40 @@ docker run -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro --name ubuntu-kaf
 - enable service
 ```bash
 docker exec -it ubuntu-kafka systemctl enable zookeeper.service
+```
+```bash
 docker exec -it ubuntu-kafka systemctl enable kafka.service
+```
+```bash
 docker exec -it ubuntu-kafka systemctl enable schema-registry.service
+```
+```bash
 docker exec -it ubuntu-kafka systemctl enable kafka-connect.service
 ```
 - start service
 ```bash
 docker exec -it ubuntu-kafka systemctl start zookeeper.service
+```
+```bash
 docker exec -it ubuntu-kafka systemctl start kafka.service
+```
+```bash
 docker exec -it ubuntu-kafka systemctl start schema-registry.service
+```
+```bash
 docker exec -it ubuntu-kafka systemctl start kafka-connect.service
 ```
 - status service
 ```bash
 docker exec -it ubuntu-kafka systemctl status zookeeper.service
+```
+```bash
 docker exec -it ubuntu-kafka systemctl status kafka.service
+```
+```bash
 docker exec -it ubuntu-kafka systemctl status schema-registry.service
+```
+```bash
 docker exec -it ubuntu-kafka systemctl status kafka-connect.service
 ```
 ## Create Topic
