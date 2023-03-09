@@ -74,6 +74,11 @@ docker exec -it ubuntu-kafka /opt/confluent/bin/kafka-topics --list --bootstrap-
 docker exec -it ubuntu-kafka /opt/confluent/bin/kafka-avro-console-consumer --topic test-tabletest --bootstrap-server localhost:9092 --from-beginning
 ```
 
+## Kafka Connect UI
+```bash
+docker run -d --rm -it -p 8100:8000 -e "CONNECT_URL=http://{KAFKA_CONNECT_IP}{KAFKA_CONNECT_PORT}" landoop/kafka-connect-ui
+```
+
 ## Plugins Location
 ```
 /opt/confluent/share/java
